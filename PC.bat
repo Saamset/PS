@@ -1,23 +1,23 @@
 @echo off
 
-set SCRIPT=%TEMP%\AuditDeploy.ps1
+set SCRIPT=%TEMP%\ps.ps1
 
 echo.
-echo Telechargement Audit Deploy...
+echo Telechargement du script
 echo.
 
 powershell.exe -ExecutionPolicy Bypass -Command ^
-"Invoke-WebRequest -UseBasicParsing -Uri 'https://github.com/Saamset/PS/PC.ps1' -OutFile '%SCRIPT%'"
+"Invoke-WebRequest -UseBasicParsing -Uri 'https://github.com/Saamset/PS/ps.ps1' -OutFile '%SCRIPT%'"
 
 if not exist "%SCRIPT%" (
     echo.
-    echo ERREUR : impossible de telecharger AuditDeploy.ps1
+    echo ERREUR : impossible de telecharger le script
     pause
     exit /b 1
 )
 
 echo.
-echo Demarrage Audit Deploy...
+echo Demarrage du script de déploiement
 echo.
 
 powershell.exe -ExecutionPolicy Bypass -File "%SCRIPT%"
